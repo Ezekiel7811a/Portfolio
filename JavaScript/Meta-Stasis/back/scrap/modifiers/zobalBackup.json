@@ -1,0 +1,15 @@
+[
+ {
+  "nameFR": "Collisions de support",
+  "nameEN": "Support Collisions",
+  "nameES": "Colisiones de Apoyo",
+  "namePT": "Colisões de Suporte",
+  "origin": "zobal",
+  "effect": {
+   "pourcentCriticalChance": 20,
+   "pourcentDamage": 10,
+   "criticalHeal": 10
+  },
+  "target": "ally"
+ }
+]

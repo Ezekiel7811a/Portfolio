@@ -1,0 +1,14 @@
+pour un compte joueur il y a un email associé permettant la vérification du compte ainsi qu'un mdp hashé. à voir si hasher les mails est judicieux, sinon login par google possible. Les builds des joueurs sont stockés partiellement pour leur permettre de partager seulement leurs filtres, leurs aptitudes, enchantement ou items. La sauvegarde d'un build entier représente sauvegarder une page de chaque excepté filtre. Les sublimations sont les seules choses optionnelles dans un code build. Un profil de joueur possède jusqu'à 100 filtres, 100 pages d'enchantement, 100 pages d'items, 100 pages d'aptitudes. 
+Le total de stockage représente des strings générés pour les codes d'environ 200 caractères, et de max 100 pour les noms.
+0,1MB par compte max supposément à ce stade.
+
+Pour faciliter l'enregistrement/création des codes build, n'autoriser que l'enregistrement des pages d'aptitudes complétées, de chasses remplies, de pages d'items remplies.
+avoir un bouton save/export pour toutes ces catégories. 
+
+Un code aptitude correspond à E#1 (id de la catégorie d'aptitude) suivi de -x-x-x-x-x- remplaçant x par la valeur de l'aptitude concernée, la taille de la suite varie fonction de la catégorie d'aptitudes. 
+
+un code enchantement correspond à A#1 (id de la catégorie d'objet dont va dépendre le bonus *2 pour certaines aptitudes)
+suivi de -a-b-c-d- 4lettres qui représentent le type de bonus utilisé dans chaque chasse. Optionnellement après chaque suite on check pour la présence d'un S majuscule signifant une sublimation, après le S ":34" correspond à l'id d'une sublimation. 
+
+un code items correspond à une suite d'id d'objets correspondant à l'ensemble des équipements équippés.
+possibilité de rendre un équippement absent = NaN ou 0 ou -1 pour pouvoir exporter une partie d'un build dont l'on est certain pour le compléter de plusieurs manières différentes.

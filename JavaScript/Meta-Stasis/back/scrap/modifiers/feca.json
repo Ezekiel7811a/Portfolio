@@ -1,0 +1,40 @@
+[
+    {
+        "id": 2373,
+        "origin": "feca",
+        "name":{
+            "fr":"Bâton",
+            "en":"Staff",
+            "es":"Bastón",
+            "pt": "Bastão"
+        },
+        "spellEffects":{
+            "percentMeleeDamage":40,
+            "percentDistanceDamage":0,
+            "percentDamage":0,
+            "criticalChance":0,
+            "masteries":0,
+            "criticalMasteries":0
+        },
+        "target":"ally"
+    },
+    {
+        "id": 2258,
+        "origin": "feca",
+        "name":{
+            "fr":"Météorite",
+            "en":"Meteorite",
+            "es":"Meteorito",
+            "pt": "Meteorito"
+        },
+        "spellEffects":{
+            "percentMeleeDamage":0,
+            "percentDistanceDamage":0,
+            "percentDamage":15,
+            "criticalChance":20,
+            "masteries":0,
+            "criticalMasteries":0
+        },
+        "target":"ally"
+    }
+]

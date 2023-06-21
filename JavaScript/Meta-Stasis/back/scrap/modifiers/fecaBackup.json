@@ -1,0 +1,25 @@
+[
+ {
+  "nameFR": "Bâton",
+  "nameEN": "Staff",
+  "nameES": "Bastón",
+  "namePT": "Bastão",
+  "origin": "feca",
+  "effect": {
+   "pourcentageMeleeDamage": 40
+  },
+  "target": "ally"
+ },
+ {
+  "nameFR": "Météorite",
+  "nameEN": "Meteorite",
+  "nameES": "Meteorito",
+  "namePT": "Meteorito",
+  "origin": "feca",
+  "effect": {
+   "pourcentCriticalChance": 20,
+   "pourcentDamage": 15
+  },
+  "target": "ally"
+ }
+]

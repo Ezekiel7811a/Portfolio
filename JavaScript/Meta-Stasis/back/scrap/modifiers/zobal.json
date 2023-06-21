@@ -1,0 +1,21 @@
+[
+    {
+        "id": 7103,
+        "origin": "zobal",
+        "name":{
+            "fr":"Collisions de support",
+            "en":"Support Collisions",
+            "es":"Colisiones de Apoyo",
+            "pt": "Colisões de Suporte"
+        },
+        "spellEffects":{
+            "percentMeleeDamage":40,
+            "percentDistanceDamage":0,
+            "percentDamage":10,
+            "criticalChance":20,
+            "masteries":0,
+            "criticalMasteries":0
+        },
+        "target":"ally"
+    }
+]
