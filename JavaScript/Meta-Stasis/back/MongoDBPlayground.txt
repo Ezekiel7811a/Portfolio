@@ -1,3 +1,0 @@
-mongoimport --uri mongodb+srv://Ezekiel:wuoLXFyrCOCpRUPm@metastasis.efxxfkl.mongodb.net/Metastasis --collection Equipments --type json --file Equipments.json --jsonArray
-
-mongoimport --uri mongodb+srv://Ezekiel:wuoLXFyrCOCpRUPm@metastasis.efxxfkl.mongodb.net/Metastasis --collection Spells --type json --file spells.json --jsonArray
