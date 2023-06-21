@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meta-Stasis</title>
+  </head>
+  <body>
+    <h1>Get Equipment By ID</h1>
+    <form
+      id="getEquipmentByIdForm"
+      action="http://localhost:3000/equipments"
+      method="POST"
+    >
+      <label for="id">ID:</label>
+      <input
+        type="number"
+        name="id"
+        id="id"
+        autocomplete="off"
+      />
+      <br /><br />
+      <button type="submit">Get Equipment</button>
+    </form>
+    <h1>Get Equipments By Name</h1>
+    <form
+      id="getEquipmentsByNameForm"
+      action="http://localhost:3000/equipments"
+      method="POST"
+    >
+      <label for="id">Name:</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        autocomplete="off"
+      />
+      <br /><br />
+      <button type="submit">Get Equipments</button>
+    </form>
+    <h1>Language Selector</h1>
+    <label for="language">Select a language:</label>
+    <select id="language">
+      <option
+        value="fr"
+        selected
+      >
+        Français
+      </option>
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="pt">Português</option>
+    </select>
+    <div id="output"></div>
+    <div
+      id="results"
+      flex-wrap:
+      wrap
+    ></div>
+    <script src="./app.js"></script>
+  </body>
+</html>

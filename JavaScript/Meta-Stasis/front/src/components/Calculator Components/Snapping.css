@@ -1,0 +1,10 @@
+.item {
+    flex-basis: calc(33.33% - 8px); /* 8px de marge */
+    flex-grow: 1;
+    margin: 4px; /* 4px de marge */
+  }
+
+.container {
+display: flex;
+flex-wrap: wrap;
+}
