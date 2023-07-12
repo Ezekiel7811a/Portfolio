@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:BombQuestionnaire.Model"
+             xmlns:components="clr-namespace:BombQuestionnaire.Components"
+             xmlns:viewmodel="clr-namespace:BombQuestionnaire.ModelView"
+             x:Class="BombQuestionnaire.View.MainPage"
+             x:DataType="viewmodel:QuestionnaireViewModel"
+             Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="Default" x:DataType="model:LikertQuestion">
+                <Frame HeightRequest="100">
+                    <components:Likert Text="{Binding Text}"/>
+                </Frame>
+            </DataTemplate>
+            <DataTemplate x:Key="Likert" x:DataType="model:LikertQuestion">
+                <Frame HeightRequest="100">
+                    <components:Likert Text="{Binding Text}"/>
+                </Frame>
+            </DataTemplate>
+            <DataTemplate x:Key="LikertMultiple" x:DataType="model:LikertMultipleQuestion">
+                <Frame HeightRequest="500">
+                    <components:LikertMultiple Options="{Binding Options}"
+                                               Rows="{Binding Likerts}"/>
+                </Frame>
+            </DataTemplate>
+
+            <components:QuestionSelector x:Key="QuestionSelector"
+                                         Default="{StaticResource Default}"
+                                         LikertTemplate="{StaticResource Likert}"
+                                         LikertMultipleTemplate="{StaticResource LikertMultiple}"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="*, .25*">
+        <CollectionView ItemsSource="{Binding Questions}"
+                        ItemTemplate="{StaticResource QuestionSelector}"
+                        SelectionMode="None"
+                        Background="purple">
+        </CollectionView>
+        <Button Grid.Row="1"
+                HorizontalOptions="End"
+                Margin="0, 25, 50, 25"
+          Text="SAVE"
+          WidthRequest="200"/>
+    </Grid>
+
+</ContentPage>

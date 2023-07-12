@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:model="clr-namespace:BombQuestionnaire.Model"
+      x:Class="BombQuestionnaire.Components.LikertMultiple"
+      x:DataType="model:LikertMultipleQuestion"
+      ColumnDefinitions=".25*, *"
+      RowDefinitions="*, *">
+
+    <CollectionView ItemsLayout="HorizontalList"
+                    Grid.Column="1"
+                    x:Name="OptionsLabels">
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="model:Option">
+                <Label Text="{Binding Name}"
+                       FontSize="12"
+                       WidthRequest="50"
+                       x:Name="LabelWidth"/>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+
+    <CollectionView x:Name="VerticalStackButtons"
+                    Grid.Column="1"
+                    Grid.Row="1">
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="model:LikertQuestion">
+                <CollectionView ItemsLayout="HorizontalList"
+                            x:Name="RadioButtons"
+                                ItemsSource="{Binding Options}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Option">
+                            <RadioButton WidthRequest="{Binding Source={} }"/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+
+    <CollectionView x:Name="QuestionsText"
+                    ItemsSource="{Binding Likerts}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="model:LikertQuestion">
+                <Label Text="{Binding Text}"/>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</Grid>
