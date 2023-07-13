@@ -14,7 +14,6 @@
             <DataTemplate x:DataType="model:Option">
                 <Label Text="{Binding Name}"
                        FontSize="12"
-                       WidthRequest="50"
                        x:Name="LabelWidth"/>
             </DataTemplate>
         </CollectionView.ItemTemplate>
@@ -30,7 +29,7 @@
                                 ItemsSource="{Binding Options}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:Option">
-                            <RadioButton WidthRequest="{Binding Source={} }"/>
+                            <RadioButton />
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
@@ -46,4 +45,8 @@
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
+
+    <Grid x:Name="myGrid">
+        
+    </Grid>
 </Grid>

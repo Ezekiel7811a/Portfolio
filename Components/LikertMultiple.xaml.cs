@@ -1,4 +1,5 @@
 using BombQuestionnaire.Model;
+using Microsoft.Extensions.Logging;
 
 namespace BombQuestionnaire.Components;
 
@@ -9,31 +10,32 @@ public partial class LikertMultiple : Grid
 		InitializeComponent();
 		OptionsLabels.ItemsSource = Options;
         VerticalStackButtons.ItemsSource = Rows;
-        //RadioButtons = (CollectionView)VerticalStackButtons.ItemTemplate.Values;
-        //RadioButtons.ItemsSource = Rows;
-        /*for (int i = 0; i < numberOfRows; i++)
-        {
-            myGrid.RowDefinitions.Add(new RowDefinition() { });
-        }
-        for (int i = 0; i < numberOfColumns; i++)
-        {
-            myGrid.ColumnDefinitions.Add(new ColumnDefinition() { });
-        }
 
-        foreach (var column in myGrid.ColumnDefinitions)
-        {
-            column.SetValue()
-        }*/
+        Label text1 = new Label();
+        text1.Text = "Test";
+        myGrid.SetColumn(text1, 1);
+        myGrid.SetRow(text1, 1);
 
-	}
+        //Add to the grid children collection
+        myGrid.Children.Add(text1);
+    }
 
-    public CollectionView RadioButtons;
+    public List<ColumnDefinition> columns { get; set; }
+    public List<RowDefinition> rows { get; set; }
 
 	public static readonly BindableProperty OptionsProperty = BindableProperty.Create(
 		nameof(Options), typeof(List<Option>), typeof(LikertMultiple), propertyChanged: (bindable, oldValue, newValue) =>
         {
             var control = (LikertMultiple)bindable;
 			control.OptionsLabels.ItemsSource = (List<Option>)newValue;
+
+            control.columns = new List<ColumnDefinition>();
+            for (int i = 0; i < control.NumberOfColumns; i++)
+            {
+                ColumnDefinition col = new ColumnDefinition();
+                control.columns.Add(col);
+                control.myGrid.ColumnDefinitions.Add(col);
+            }
         });
 
     public static readonly BindableProperty RowsProperty = BindableProperty.Create(
@@ -41,7 +43,14 @@ public partial class LikertMultiple : Grid
         {
             var control = (LikertMultiple)bindable;
             control.VerticalStackButtons.ItemsSource = (List<LikertQuestion>)newValue;
-            //control.RadioButtons.ItemsSource = (List<LikertQuestion>)newValue;
+
+            control.rows = new List<RowDefinition>();
+            for (int i = 0; i < control.NumberOfRows; i++)
+            {
+                RowDefinition row = new RowDefinition();
+                control.rows.Add(row);
+                control.myGrid.RowDefinitions.Add(row);
+            }
         });
 
     public List<Option> Options
@@ -52,8 +61,8 @@ public partial class LikertMultiple : Grid
 
     public List<LikertQuestion> Rows
     {
-        get => (List<LikertQuestion>)GetValue(OptionsProperty);
-        set => SetValue(OptionsProperty, value);
+        get => (List<LikertQuestion>)GetValue(RowsProperty);
+        set => SetValue(RowsProperty, value);
     }
 
     public int NumberOfRows => Rows.Count + 1;

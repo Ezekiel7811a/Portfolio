@@ -22,8 +22,8 @@
             </DataTemplate>
             <DataTemplate x:Key="LikertMultiple" x:DataType="model:LikertMultipleQuestion">
                 <Frame HeightRequest="500">
-                    <components:LikertMultiple Options="{Binding Options}"
-                                               Rows="{Binding Likerts}"/>
+                    <components:LikertMultiple Rows="{Binding Likerts}"
+                                               Options="{Binding Options}"/>
                 </Frame>
             </DataTemplate>
 
